@@ -53,6 +53,7 @@ const props = defineProps({
 
 const emit = defineEmits(['talkingStateChange'])
 
+// State management for chat functionality
 const messages = ref([])
 const welcomeMessage = ref(null)
 const newMessage = ref('')
@@ -65,7 +66,7 @@ const chatStarted = ref(false)
 const welcomeComplete = ref(false)
 const isProcessing = ref(false)
 
-// Add these new refs for logging
+// Tracking conversation metrics and participant information
 const message_number = ref(0)
 const urlParams = new URLSearchParams(window.location.search)
 const group = ref(urlParams.get('group') || '')
@@ -131,7 +132,7 @@ const playAudio = async (audioBlob) => {
     }
 }
 
-// Add this function to save conversations to Google Sheets
+// Logging conversation data to Google Sheets
 async function saveConversation(humanSay, gptText) {
     const formData = new FormData()
     formData.append('qualtrics_code', participantId.value || '')
@@ -145,13 +146,12 @@ async function saveConversation(humanSay, gptText) {
     await postSheet(formData)
 }
 
-// Add helper functions for Google Sheets logging
+// Helper function to post data to Google Sheets
 function postSheet(formData) {
-
     console.log(formData)
     const serializedData = serializeFormData(formData)
 
-    fetch("https://script.google.com/macros/s/AKfycbwN45pgOyilVoYYKeheFSFzlAEknyS1lfp87zeYwcPKfcIDkSfJfQnZgLt92_fH8klp/exec", {
+    fetch("YOUR GOOGLE SHEET URL HERE", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -169,6 +169,7 @@ function postSheet(formData) {
         })
 }
 
+// Utility function to count form data entries
 function formDataLength(formData) {
     let count = 0
     for (let pair of formData.entries()) {
@@ -177,6 +178,7 @@ function formDataLength(formData) {
     return count
 }
 
+// Utility function to serialize form data for API submission
 function serializeFormData(formData) {
     let serializedString = ""
     const length = formDataLength(formData)
@@ -195,6 +197,7 @@ function serializeFormData(formData) {
     return serializedString
 }
 
+// Message handling and audio generation
 const handleSendMessage = async () => {
     const text = newMessage.value.trim()
     if (text && !isProcessing.value) {
@@ -382,7 +385,7 @@ onUnmounted(() => {
     cleanupAudio()
 })
 
-// Add this function to count user messages
+// Utility function to count user messages
 const getUserMessageCount = () => {
     return messages.value.filter(message => message.isUser).length
 }

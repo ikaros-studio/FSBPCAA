@@ -1,37 +1,48 @@
 <script setup>
+// Core Vue imports
 import { ref, onMounted } from 'vue';
+
+// Component imports
 import Chat from './components/Chat.vue';
 import Text from './components/Text.vue';
 import Modal from './components/Modal.vue';
+
+// Configuration import
 import conditions from './assets/conditions.js'
 
+// State management
 const currentComponent = ref(null);
 const componentProps = ref(null);
 const showModal = ref(true);
 const hasEnteredApp = ref(false);
 const urlParams = new URLSearchParams(window.location.search);
 
+// Lifecycle hook: Initialize component based on URL parameters
 onMounted(() => {
   const group = urlParams.get('group');
   
   if (group && conditions[group]) {
     componentProps.value = conditions[group];
     
+    // Component selection based on group prefix
     if (group.startsWith('chat_')) {
       currentComponent.value = Chat;
     } else if (group.startsWith('text_')) {
       currentComponent.value = Text;
     }
   } else {
+    // Error handling: Invalid or missing group parameter
     console.log(`No condition found for group: ${group}`);
   }
 });
 
+// Event handler: Modal confirmation
 const handleEnterApp = () => {
   showModal.value = false;
   hasEnteredApp.value = true;
 };
 
+// Utility: Organize conditions into grouped categories
 const getConditionGroups = () => {
   return Object.keys(conditions).reduce((acc, key) => {
     const type = key.startsWith('chat_') ? 'Chat' : 

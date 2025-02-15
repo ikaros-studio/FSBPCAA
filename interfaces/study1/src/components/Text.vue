@@ -9,6 +9,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
+/**
+ * Component Props
+ * @property {Object} group - Contains text content to be displayed
+ * @property {string} group.content - The actual text content to render
+ */
 const props = defineProps({
     group: {
         type: Object,

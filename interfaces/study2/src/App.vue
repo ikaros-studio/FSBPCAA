@@ -5,14 +5,16 @@ import Model from './components/Model.vue'
 import Chat from './components/Chat.vue'
 import Modal from './components/Modal.vue'
 
-const condition = ref(null)
-const error = ref(null)
-const isTalking = ref(false)
-const isVideoLoaded = ref(false)
-const isModelLoaded = ref(false)
-const showModal = ref(true)
-const interventionStarted = ref(false)
+// State management for application conditions and UI states
+const condition = ref(null)          // Current selected experimental condition
+const error = ref(null)              // Error state for handling failures
+const isTalking = ref(false)         // Tracks if the AI agent is currently speaking
+const isVideoLoaded = ref(false)     // Background video loading state
+const isModelLoaded = ref(false)     // 3D model loading state
+const showModal = ref(true)          // Controls visibility of the introduction modal
+const interventionStarted = ref(false) // Tracks if the intervention session has begun
 
+// Event Handlers
 const handleModalEnter = () => {
   showModal.value = false
   interventionStarted.value = true
@@ -26,6 +28,7 @@ const handleModelLoad = () => {
   isModelLoaded.value = true
 }
 
+// Lifecycle hook to initialize condition from URL parameters
 onMounted(() => {
   const urlParams = new URLSearchParams(window.location.search)
   const groupId = urlParams.get('group')
@@ -35,11 +38,14 @@ onMounted(() => {
   }
 })
 
+// Condition selection handler with URL state management
 const selectCondition = (groupId) => {
+  // Update URL with selected condition
   const url = new URL(window.location)
   url.searchParams.set('group', groupId)
   window.history.pushState({}, '', url)
 
+  // Update application state
   condition.value = conditions[groupId]
   // Reset loading states when a new condition is selected
   isVideoLoaded.value = false
@@ -100,6 +106,7 @@ const handleTalkingState = (talking) => {
 </template>
 
 <style>
+/* Global Styles */
 body {
   margin: 0;
   /* Reset margin */
@@ -118,12 +125,14 @@ body {
 </style>
 
 <style scoped>
+/* Layout Containers */
 .app-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
+/* Modal Styling */
 .modal-container {
   display: flex;
   align-items: center;
@@ -132,6 +141,7 @@ body {
   height: 100vh;
 }
 
+/* Background Video Styling */
 .background-video {
   position: fixed;
   right: 0;
@@ -205,6 +215,7 @@ body {
   }
 }
 
+/* Condition Selector Styling */
 .condition-selector {
   display: flex;
   flex-direction: column;

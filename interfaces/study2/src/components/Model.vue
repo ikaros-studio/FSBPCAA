@@ -31,17 +31,19 @@ let rotationTimer = null
 const talkingIndex = ref(0)
 const idleIndex = ref(0)
 
-const ANIMATION_DURATION = props.condition.model.animations?.switch || 1000  // Switch animation every 5 seconds while talking
+// Configuration constants for animation and rotation behavior
+const ANIMATION_DURATION = props.condition.model.animations?.switch || 1000
 const ROTATION_SPEED = 0.5 // Degrees per frame
-let currentRotation = props.condition.model.defaultRotation || 0 // Initialize with default from props if available
+let currentRotation = props.condition.model.defaultRotation || 0
 const MAX_ROTATION = -35 
 const MIN_ROTATION = -10 
-let targetRotation = currentRotation // Initialize target to match current
+let targetRotation = currentRotation
 
-// Calculate camera distance based on model scale
+// Camera positioning constants based on model scale
 const CAMERA_DISTANCE = `${120 * (props.condition.model.scale || 1)}%`
 const ORBIT_DISTANCE = CAMERA_DISTANCE
 
+// Cleanup function to remove animation listeners and clear timers
 const cleanupCurrentAnimation = () => {
   if (currentAnimationHandler) {
     modelViewer.value?.removeEventListener('finished', currentAnimationHandler)
@@ -57,7 +59,7 @@ const cleanupCurrentAnimation = () => {
   }
 }
 
-// Helper to play animations with crossfade
+// Animation playback handler with crossfade support
 const playAnimations = (animationNames, force = false) => {
   if (!modelViewer.value || !animationNames?.length) return
 
@@ -142,6 +144,7 @@ const playAnimations = (animationNames, force = false) => {
   playNext()
 }
 
+// Smooth rotation interpolation for talking animations
 const updateRotation = () => {
   if (!modelViewer.value || !props.isTalking) return
   
@@ -161,7 +164,7 @@ const updateRotation = () => {
   rotationTimer = requestAnimationFrame(updateRotation)
 }
 
-// Add periodic rotation change while talking
+// Initialize periodic rotation changes during talking animations
 const startPeriodicRotation = () => {
   const changeRotation = () => {
     if (props.isTalking) {
@@ -221,7 +224,9 @@ watch(() => props.isTalking, (newValue) => {
 
 const emit = defineEmits(['model-loaded'])
 
+// Event handler for model loading completion
 const handleModelLoad = () => {
+  // Emit event to parent component when 3D model is fully loaded
   console.log('Model loaded')
   emit('model-loaded')
 }
@@ -244,7 +249,7 @@ onUnmounted(() => {
   }
 })
 
-// Helper functions to check condition types
+// Condition type checking utilities
 const isTreatmentCondition = () => {
   return props.condition?.id?.startsWith('treatment_')
 }
@@ -253,7 +258,7 @@ const isControlPersonal = () => {
   return props.condition?.id?.startsWith('control_personal_')
 }
 
-// Simplified loading logic
+// Loading state management for different condition types
 const shouldShowLoader = () => {
   // Only show loader for treatment and control_personal conditions
   if (isTreatmentCondition() || isControlPersonal()) {
