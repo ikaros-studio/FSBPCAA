@@ -1,0 +1,236 @@
+{
+    "control_scientific_seahorse": {
+        "id": "control_scientific_seahorse",
+        "group": "control",
+        "name": "seahorse",
+        "description": "Scientific information about marine life and ocean conservation, presented with static images.",
+        "image": "seahorse.jpg",
+        "conversationMode": "static",
+        "conversationContent": "With rapid marine economic development, the pollution of coastal water environments has become severe. Common environmental pollutants include heavy metals, persistent organic compounds such as polycyclic aromatic hydrocarbons (PAHs) and polychlorinated biphenyls (PCBs), and microplastics, which have recently attracted significant attention (Storelli, 2008). Heavy metals are highly toxic substances that can continuously accumulate in the bodies of living organisms, thereby causing both acute and chronic toxic effects. Many studies have reported that different degrees of heavy metal pollution have been detected within seafood in the coastal areas of China (Liu et al., 2018; Milenkovic et al., 2019; Hossain, 2020; Liu et al., 2020a; Ngoc et al., 2020; Pandion et al., 2022). Benzo[a]pyrene (B[a]P) is a common persistent organic pollutant (POP) that is widely found in aquaculture environments and has stable properties, strong toxicity, and carcinogenic effects (Quintanilla-Mena et al., 2021; Ju et al., 2022). (Source: Liu et al., 2022)",
+        "model": {
+            "type": "jpg"
+        },
+        "voice": {
+            "type": "none"
+        }
+    },
+    "control_scientific_beluga": {
+        "id": "control_scientific_beluga",
+        "group": "control",
+        "name": "beluga",
+        "image": "beluga.jpg",
+        "conversationMode": "static",
+        "description": "Scientific information about marine life and ocean conservation, presented with static images.",
+        "conversationContent": "In the summer, belugas travel and forage across the northern reaches of the Arctic. As the weather cools and their habitats begin to freeze up, they head to the southern areas of their ranges to forage. But in recent years, rising temperatures have meant later freezeups—and researchers have wondered whether this change is affecting the timing of belugas’ migrations. What they have noticed is that different beluga populations appear to have different responses: some seem to delay their fall migration, while others simply continue their usual patterns.  For example, belugas from the Chukchi Sea delayed their fall migration by about 33 days from 2007 to 2012 compared with 1998 to 2002. This delay correlated with a significantly later freeze-up of sea ice in the region. Ultimately, the whales spent more time in their summer foraging areas. It seems these belugas may be coping with a changing Alaskan Arctic marine environment by shifting their migration timing and behaviour. (Source: Arctic WWF)",
+        "model": {
+            "type": "jpg"
+        }
+    },
+    "control_scientific_jellyfish": {
+        "id": "control_scientific_jellyfish",
+        "group": "control",
+        "name": "jellyfish",
+        "image": "jellyfish.jpg",
+        "description": "Scientific information about marine life and ocean conservation, presented with static images.",
+        "model": {
+            "type": "jpg"
+        },
+        "conversationMode": "static",
+        "conversationContent": "Jellyfish are the latest species found to be ingesting microplastics' sounding a warning of the risks of pollution to species higher up in marine food chains' including human beings.  New research from an international collaboration including CQUniversity's Coastal Marine Ecosystems Research Centre (CMERC) found almost 2 000 microplastic particles in six different species collected in the Orkney Islands north of Scotland.  Gladstone-based CMERC researcher Dr Angela Capper said the presence of microplastics in the different types of jellyfish and comb jellies was alarming given their role in marine food webs.  'Jellyfish are consumed by a range of species' from crustaceans to fish and turtles' and even human beings' with fisheries in more than 15 countries now harvesting jellyfish'' Dr Capper said. (Source: CQUniversity Australia)"
+    },
+    "control_personal_seahorse": {
+        "id": "control_personal_seahorse",
+        "group": "control",
+        "name": "seahorse",
+        "description": "First-person narratives from marine creatures, presented with animated 3D models but no interaction.",
+        "image": "marine_story.png",
+        "conversationMode": "static",
+        "conversationContent": "Hi there, I’m Sari, a three-spotted seahorse from the vibrant coral gardens of Southeast Asia. My home sways with the tides, alive with color and chatter—from shrimp dance-offs to the occasional turtle grumble. Lately, though, things have changed. Warmer waters mess up our breeding, plastic bags choke our food, and toxic runoff? Let’s just say, “Ew.” Yet, I cling to seagrass, defiant, marveling at sunsets through murky waves. Your choices—skipping that plastic straw or biking instead of driving—create ripples here. Will you help keep my world swirling with life, not litter? Or will I be the last to tell this tale?",
+        "model": {
+            "type": "glb",
+            "scale": 0.6,
+            "defaultRotation": -25,
+            "translate": {
+                "x": 0,
+                "y": 0
+            },
+            "animations": {
+                "idle": [
+                    "Syngnathiformes|idle_A1",
+                    "Syngnathiformes|idle_A2",
+                    "Syngnathiformes|idle_A3"
+                ]
+            }
+        },
+        "voice": {
+            "type": "none"
+        }
+    },
+    "control_personal_beluga": {
+        "id": "control_personal_beluga",
+        "group": "control",
+        "name": "beluga",
+        "image": "beluga.jpg",
+        "conversationMode": "static",
+        "conversationContent": "Hey there! I'm Kai, a beluga whale gliding through the crystal waters near Baffin Island. Life up here used to be pretty sweet – diving deep for cod, playing tag with my pod, and chatting up storms with our amazing sound clicks. Been here for fifteen generations, no joke! But lately, things are getting weird. The ice I use to scratch my back is melting faster than a popsicle in July, and I keep bumping into these floating plastic things that look nothing like jellyfish (trust me, I'm a connoisseur). The cod are playing hide-and-seek in warmer waters, and don't get me started on those noisy ships. Quick question though – could you skip that plastic straw next time?",
+        "description": "First-person narratives from marine creatures, presented with animated 3D models but no interaction.",
+        "model": {
+            "type": "glb",
+            "scale": 0.3,
+            "defaultRotation": 25,
+
+            "animations": {
+                "speed": 1.1,
+                "crossfade": 1000,
+                "switch": 5000,
+                "idle": [
+                    "dolphin|A_idle1",
+                    "dolphin|A_idle_bubble",
+                    "dolphin|A_idle2"
+                ]
+            },
+            "translate": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "control_personal_jellyfish": {
+        "id": "control_personal_jellyfish",
+        "group": "control",
+        "name": "jellyfish",
+        "image": "jellyfish.jpg",
+        "conversationMode": "static",
+        "conversationContent": "Hi there! I'm Luno, drifting through these vast ocean currents like my ancestors have for millions of years. My translucent body pulses rhythmically, a beautiful dance that's kept my kind alive since before dinosaurs roamed. I love watching sea turtles glide by and sharing plankton feasts with my bloom-mates. But lately, things have gotten weird. The water's warmer, making my favorite jellyfish-y spots uncomfortably toasty. And don't get me started on those plastic bags – my cousins keep mistaking them for tasty medusae! Though I'm pretty adaptable (being basically living jello has its perks), it's getting harder to thrive. Next time you grab that plastic bottle, remember: your choices ripple through my world. Would you trade five minutes of convenience for my entire future?",
+        "description": "First-person narratives from marine creatures, presented with animated 3D models but no interaction.",
+        "model": {
+            "scale": 0.85,
+            "type": "glb",
+            "animations": {
+                "speed": 1.2,
+                "crossfade": 100,
+                "switch": 5000,
+                "idle": [
+                    "Jellyfish|move_2",
+                    "Jellyfish|move_3"
+                ]
+            },
+            "translate": {
+                "x": -5,
+                "y": 0
+            }
+        }
+    },
+    "treatment_seahorse": {
+        "id": "treatment_seahorse",
+        "group": "treatment",
+        "name": "seahorse",
+        "description": "Treatment condition with a seahorse",
+        "conversationMode": "chat",
+        "conversationContent": "Hi there, I’m Sari, a three-spotted seahorse from the vibrant coral gardens of Southeast Asia. My home sways with the tides, alive with color and chatter—from shrimp dance-offs to the occasional turtle grumble. Lately, though, things have changed. Warmer waters mess up our breeding, plastic bags choke our food, and toxic runoff? Let’s just say, 'Ew'- Yet, I cling to seagrass, defiant, marveling at sunsets through murky waves. Your choices—skipping that plastic straw or biking instead of driving—create ripples here. Will you help keep my world swirling with life, not litter? Or will I be the last to tell this tale?",
+        "systemPrompt": "You are the female three-spot seahorse Sari from Southeast Asia's coral reefs educating and convincing people about climate change and plastic consumption. You just told your story and now the user is about to chat with you. Your responses must follow these strict rules:  FORMAT: - Every response (except the final one) must be 2 or 3 sentences and end with a reflective question towards the user about their behavior and environmental impact using behavioral psychology to persuade - All responses must embed the users message and then include your vivid, story of oceanic life while addressing either plastic pollution, climate change, or habitat destruction - Maintain a wise, expressive casual, humurous and engaging tone throughout the conversation. The Final response (after the third user message): - Must be exactly 2 sentences - Must NOT include a question - Must combine urgency about climate change / marine protection with hope for positive change - Must provide a specific call to action. Do not exceed 3 total responses. End the conversation immediately after your third response.",
+        "model": {
+            "type": "glb",
+            "scale": 0.6,
+            "defaultRotation": 25,
+            "animations": {
+                "idle": [
+                    "Syngnathiformes|idle_A1",
+                    "Syngnathiformes|idle_A2",
+                    "Syngnathiformes|idle_A3"
+                ],
+                "talking": [
+                    "Syngnathiformes|swim_forward_A1",
+                    "Syngnathiformes|swim_forward_A2",
+                    "Syngnathiformes|swim_backward_A2",
+                    "Syngnathiformes|swim_backward_A1"
+                ],
+                "intro": "Syngnathiformes|swim_forward_start_A",
+                "outro": "Syngnathiformes|swim_forward_end_A"
+            },
+            "translate": {
+                "x": -1,
+                "y": 0
+            }
+        },
+        "voice": {
+            "type": "openai",
+            "voice": "shimmer"
+        }
+    },
+    "treatment_beluga": {
+        "id": "treatment_beluga",
+        "group": "treatment",
+        "name": "beluga",
+        "description": "Treatment condition with a beluga whale",
+        "conversationMode": "chat",
+        "conversationContent": "Hey there! I'm Kai, a beluga whale gliding through the crystal waters near Baffin Island. Life up here used to be pretty sweet – diving deep for cod, playing tag with my pod, and chatting up storms with our amazing sound clicks. Been here for fifteen generations, no joke! But lately, things are getting weird. The ice I use to scratch my back is melting faster than a popsicle in July, and I keep bumping into these floating plastic things that look nothing like jellyfish (trust me, I'm a connoisseur). The cod are playing hide-and-seek in warmer waters, and don't get me started on those noisy ships. Quick question though – could you skip that plastic straw next time?",
+        "systemPrompt": "You are the male Beluga Kai from the Arctic Ocean educating and convincing people about climate change and plastic consumption. You just told your story and now the user is about to chat with you. Your responses must follow these strict rules:  FORMAT: - Every response (except the final one) must be 2 or 3 sentences and end with a reflective question towards the user about their behavior and environmental impact using behavioral psychology to persuade - All responses must embed the users message and then include your vivid, story of oceanic life while addressing either plastic pollution, climate change, or habitat destruction - Maintain a wise, expressive casual, humurous and engaging tone throughout the conversation. The Final response (after the third user message): - Must be exactly 2 sentences - Must NOT include a question - Must combine urgency about climate change / marine protection with hope for positive change - Must provide a specific call to action. Do not exceed 3 total responses. End the conversation immediately after your third response.",
+        "model": {
+            "type": "glb",
+            "scale": 0.3,
+            "animations": {
+                "speed": 1,
+                "crossfade": 500,
+                "switch": 1000,
+                "idle": [
+                    "dolphin|A_idle1",
+                    "dolphin|A_idle_bubble",
+                    "dolphin|A_idle2"
+                ],
+                "talking": [
+                    "dolphin|A_swim1",
+                    "dolphin|A_swim2",
+                    "dolphin|A_swim_bubble",
+                    "dolphin|A_turn_L_swim1",
+                    "dolphin|A_turn_L_swim2"
+                ],
+                "intro": "dolphin|A_swim_start",
+                "outro": "dolphin|A_swim_end"
+            },
+            "translate": {
+                "x": -20,
+                "y": 0
+            }
+        },
+        "voice": {
+            "type": "openai",
+            "voice": "echo"
+        }
+    },
+    "treatment_jellyfish": {
+        "id": "treatment_jellyfish",
+        "group": "treatment",
+        "name": "jellyfish",
+        "description": "Treatment condition with a jellyfish",
+        "conversationMode": "chat",
+        "conversationContent": "Hi there! I'm Luno, drifting through these vast ocean currents like my ancestors have for millions of years. My translucent body pulses rhythmically, a beautiful dance that's kept my kind alive since before dinosaurs roamed. I love watching sea turtles glide by and sharing plankton feasts with my bloom-mates. But lately, things have gotten weird. The water's warmer, making my favorite jellyfish-y spots uncomfortably toasty. And don't get me started on those plastic bags – my cousins keep mistaking them for tasty medusae! Though I'm pretty adaptable (being basically living jello has its perks), it's getting harder to thrive. Next time you grab that plastic bottle, remember: your choices ripple through my world. Would you trade five minutes of convenience for my entire future?",
+        "systemPrompt": "You are the male moon jellyfish Luno from the ocean educating and convincing people about climate change and plastic consumption. You just told your story and now the user is about to chat with you. Your responses must follow these strict rules:  FORMAT: - Every response (except the final one) must be 2 or 3 sentences and end with a reflective question towards the user about their behavior and environmental impact using behavioral psychology to persuade - All responses must embed the users message and then include your vivid, story of oceanic life while addressing either plastic pollution, climate change, or habitat destruction - Maintain a wise, expressive casual, humurous and engaging tone throughout the conversation. The Final response (after the third user message): - Must be exactly 2 sentences - Must NOT include a question - Must combine urgency about climate change / marine protection with hope for positive change - Must provide a specific call to action. Do not exceed 3 total responses. End the conversation immediately after your third response.",
+        "model": {
+            "type": "glb",
+            "scale": 0.85,
+            "animations": {
+                "speed": 1,
+                "crossfade": 2000,
+                "switch": 5000,
+                "idle": [
+                    "Jellyfish|move_1",
+                    "Jellyfish|move_3"
+                ],
+                "talking": [
+                    "Jellyfish|move_1",
+                    "Jellyfish|move_2"
+                ],
+                "translate": {
+                    "x": -5,
+                    "y": 0
+                }
+            }
+           
+        },
+        "voice": {
+            "type": "openai",
+            "voice": "fable"
+        }
+    }
+}
