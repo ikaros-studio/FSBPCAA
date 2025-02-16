@@ -4,7 +4,7 @@ This document provides a comprehensive description of the Stata commands that we
 
 ---
 
-## 1. Reliability Analysis (Cronbach’s Alpha)
+## 1. Reliability Analysis (Cronbach's Alpha)
 
 To assess the internal consistency of multi-item scales, such as the climate change belief scale, the `alpha` function was employed.
 
@@ -12,7 +12,7 @@ To assess the internal consistency of multi-item scales, such as the climate cha
 alpha Q1 Q2 Q3 Q4, asis
 ```
 
-- **Purpose:** This command computed Cronbach’s alpha for items Q1 through Q4 to assess the reliability of the scale.
+- **Purpose:** This command computed Cronbach's alpha for items Q1 through Q4 to assess the reliability of the scale.
 - **Details:** The `asis` option ensured that the items were used in their original form without standardization.
 
 ---
@@ -68,25 +68,27 @@ regress outcome c.var1##c.var2
 
 ## 5. ANOVA and Post-Hoc Comparisons
 
-### One-Way ANOVA
+### 5.1 One-Way ANOVA
 
-To compare means across different groups, a one-way ANOVA was performed.
-
-```stata
-oneway outcome group, tabulate
-```
-
-- **Purpose:** This analysis examined whether significant differences existed between groups for the dependent variable `outcome`.
-
-### Pairwise Comparisons (Tukey’s HSD)
-
-After conducting ANOVA, pairwise comparisons were carried out using Tukey’s HSD test.
+To compare means across different experimental conditions:
 
 ```stata
-pwmean outcome, over(group) mcompare(tukey)
+oneway outcome condition, tabulate
 ```
 
-- **Purpose:** The test adjusted for multiple comparisons to prevent inflated Type I error.
+- **Purpose:** This analysis examined whether significant differences existed between experimental conditions for the dependent variable `outcome`.
+- **Details:** The test evaluates the null hypothesis that all group means are equal.
+
+### 5.2 Tukey's Honest Significant Difference (HSD)
+
+Following a significant ANOVA result (p < 0.05), Tukey's HSD test was conducted for post-hoc pairwise comparisons:
+
+```stata
+pwmean outcome, over(condition) mcompare(tukey) effects
+```
+
+- **Purpose:** This test performed all pairwise comparisons between experimental conditions while controlling for family-wise error rate.
+- **Details:** The `effects` option displays effect sizes for the comparisons.
 
 ---
 
@@ -94,23 +96,25 @@ pwmean outcome, over(group) mcompare(tukey)
 
 ### 6.1 Paired t-test
 
-For comparing pre- and post-intervention scores when normality assumptions were met, the `ttest` function was used.
+For comparing pre-intervention and post-intervention scores when normality assumptions were met, the `ttest` function was used with a significance level of p < 0.05.
 
 ```stata
-ttest var_pre == var_post
+ttest var_post = var_pre
 ```
 
 - **Purpose:** This command tested whether the mean difference between paired samples was statistically significant.
+- **Details:** The test evaluates the null hypothesis that the mean difference between paired observations is zero.
 
 ### 6.2 Wilcoxon Signed-Rank Test
 
-When the normality assumption was not met, the Wilcoxon signed-rank test was performed as a nonparametric alternative.
+When the normality assumption was violated, the Wilcoxon signed-rank test was performed as a nonparametric alternative.
 
 ```stata
-signrank var_pre = var_post
+signrank var_post = var_pre
 ```
 
 - **Purpose:** The test assessed whether the median difference between pre- and post-intervention scores was significantly different from zero.
+- **Details:** This nonparametric test is more robust when the data doesn't follow a normal distribution.
 
 ---
 
@@ -164,48 +168,3 @@ esttab using results.xls, replace
 
 ---
 
-## 9. Graphing
-
-### 9.1 Scatter Plot with a Fit Line
-
-To visualize the relationship between two variables, a scatter plot was generated:
-
-```stata
-scatter yvar xvar, yline(, lpattern(dash))
-```
-
-- **Purpose:** This graph provided a visual representation of the correlation between `xvar` and `yvar`.
-
-### 9.2 Histogram with a Normal Distribution
-
-To examine the distribution of a variable with an overlaid normal curve:
-
-```stata
-histogram var1, normal
-```
-
-### 9.3 Box Plot
-
-To compare distributions across groups:
-
-```stata
-graph box yvar, over(group)
-```
-
-- **Purpose:** This box plot facilitated visual comparisons of `yvar` across different categories of `group`.
-
----
-
-## 10. Logistic Regression
-
-To analyze binary outcome variables, logistic regression was performed:
-
-```stata
-logit binary_outcome var1 var2 var3
-```
-
-- **Purpose:** This model estimated the probability of `binary_outcome` as a function of predictor variables.
-
----
-
-This document provides a structured overview of the Stata commands applied in the thesis. Each command played a crucial role in statistical analysis and result reporting.
